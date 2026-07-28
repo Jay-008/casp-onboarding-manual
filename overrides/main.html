@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!--
+  Announcement bar: a persistent "download the PDF" link on every page.
+  The file it points at and the version label both come from `extra:` in
+  mkdocs.yml — update them there, not here, when a new source manual lands.
+-->
+{% block announce %}
+  <a class="pdf-announce" href="{{ config.extra.manual_pdf | url }}" download>
+    {% include ".icons/material/file-download-outline.svg" %}
+    <span>Download this manual as a PDF</span>
+    <span class="ver">{{ config.extra.manual_version }}</span>
+  </a>
+{% endblock %}

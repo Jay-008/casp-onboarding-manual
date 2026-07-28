@@ -1,0 +1,7 @@
+venv/
+site/
+assets_raw/
+.DS_Store
+
+# Working copy of the source PDF — the published copy lives in docs/assets/manual/
+/CASP Manual-2026_v01-Core_Functions.pdf

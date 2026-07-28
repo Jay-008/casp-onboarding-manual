@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASP User Onboarding Guide - TCAA</title>
+    <style>
+        :root {
+      --primary-color: #0066B2;   /* Official TCAA Deep Blue */
+            --secondary-color: #FF8C00; /* Official TCAA Amber Accent */
+            --text-color: #212121;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            text-align: justify; /* Justifies paragraph text throughout the document */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+        }
+
+        .header h2 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .header h3 {
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin: 15px 0 0 0;
+            text-transform: uppercase;
+        }
+
+        .actions {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .btn-download {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-download:hover {
+            opacity: 0.9;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            font-style: italic;
+            color: #555;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        .badge {
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        .note-box {
+            background-color: #eef6fc;
+            border-left: 4px solid var(--primary-color);
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .checklist-item {
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #fafafa;
+        }
+
+        .checklist-item-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Journey Pipeline Styles */
+        .journey-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Connecting line between steps */
+        .journey-container::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: #d1d5db;
+            z-index: 1;
+        }
+
+        .journey-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .icon-circle svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .step-tag {
+            position: absolute;
+            top: 2px;
+            right: -2px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .journey-title {
+            font-weight: bold;
+            font-size: 13px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .journey-desc {
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        .helpdesk-box {
+            background-color: #f5f5f5;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .helpdesk-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .toll-free {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 10px;
+        }
+
+        /* Print styles for PDF generation */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .actions {
+                display: none;
+            }
+
+            .grid-2 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .journey-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .journey-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .journey-container::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="actions">
+        <button class="btn-download" onclick="window.print()">Download PDF</button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>Tanzania Civil Aviation Authority (TCAA)</h1>
+            <h2>Civil Aviation Services Portal (CASP)</h2>
+            <p><strong>Read Me Before Registering User Onboarding Guide</strong></p>
+            <h3>Welcome to CASP</h3>
+        </header>
+
+        <section>
+            <p>
+                The Civil Aviation Services Portal (CASP) is the official single-window online platform designed by the Tanzania Civil Aviation Authority (TCAA) to streamline civil aviation regulatory services. CASP enables aviation stakeholders to submit regulatory applications, upload supporting documentation, make secure online payments, track application progress in real time, and manage all active licenses, permits, and certificates through a centralized account.
+            </p>
+        </section>
+
+        <h3 class="section-title">1. Account Types: Selecting Your Profile</h3>
+        <p>To maintain regulatory integrity and ensure accurate authority delegation, CASP separates user accounts into two main categories. Please review the definitions below to choose the correct profile during registration:</p>
+
+        <div class="grid-2">
+            <!-- Organization Account -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Organization Account</span>
+                    <span class="badge">Corporate/Entity</span>
+                </div>
+                <p>Designed for all corporate, commercial, private, and government entities requiring regulatory authorization.</p>
+                <strong>Eligible Stakeholders:</strong>
+                <ul>
+                    <li>Commercial Air Operators &amp; General Aviation</li>
+                    <li>Approved Maintenance Organisations (AMOs)</li>
+                    <li>Air Navigation Service Providers (ANSPs)</li>
+                    <li>Aerodrome &amp; Helipad Operators</li>
+                    <li>Ground Handling Service Providers</li>
+                    <li>Aviation Security Organisations &amp; ATOs</li>
+                    <li>Government Ministries, Agencies &amp; Departments</li>
+                </ul>
+                <div class="note-box">
+                    <strong>Mandatory Rule:</strong> An authorized Account Administrator must create the entity profile first. Individual staff members must not register corporate or government entities under personal accounts.
+                </div>
+            </div>
+
+            <!-- Individual Account -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Individual Account</span>
+                    <span class="badge">Personal</span>
+                </div>
+                <p>Designed for individual aviation professionals applying for or managing personal licenses, ratings, and permits.</p>
+                <strong>Eligible Stakeholders:</strong>
+                <ul>
+                    <li>Flight Crew (Pilots, Flight Engineers)</li>
+                    <li>Aircraft Maintenance Engineers (AMEs)</li>
+                    <li>Air Traffic Controllers (ATCOs)</li>
+                    <li>Flight Operations Officers / Dispatchers</li>
+                    <li>Aviation Medical Examiners (AMEs)</li>
+                    <li>Individual Rating &amp; Permit Applicants</li>
+                </ul>
+                <div class="note-box">
+                    <strong>Personal Account Note:</strong> Always register using your official personal email to retain direct ownership of your professional aviation credentials.
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-title">2. Registration Prerequisites Checklist</h3>
+        <div class="checklist-grid">
+            <div class="checklist-item">
+                <div class="checklist-item-title">1. Active &amp; Monitored Email Address</div>
+                <p>All official TCAA correspondence, status updates, meeting alerts, GePG payment acknowledgments, account activation links, authentication codes, and verification OTPs are strictly routed via registered Email.</p>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-item-title">2. Valid Mobile Telephone Number</div>
+                <p>Required for account profile records and emergency contact details.</p>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-item-title">3. Official Registration / Identity Details</div>
+                <p>Company incorporation details/TIN (for entities) or Passport/National ID &amp; existing license numbers (for individuals).</p>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-item-title">
+                    4. Document File Format Rules
+                    <span class="badge">PDF</span>
+                </div>
+                <p>All uploaded supporting documentation must strictly be in PDF format. Image files (JPG/PNG) or Word documents will be rejected.</p>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-item-title">
+                    5. Maximum Upload Size Limit allowed
+                    <span class="badge">100 MB</span>
+                </div>
+                <p>The total combined size of all PDF attachments for a single application must not exceed 100 MB.</p>
+            </div>
+            <div class="checklist-item">
+                <div class="checklist-item-title">6. Stable Internet Connection</div>
+                <p>A stable connection is recommended when uploading larger PDF documents to prevent session timeout.</p>
+            </div>
+        </div>
+
+        <h3 class="section-title">3. Applicant's Journey</h3>
+        <p class="section-subtitle">A regulatory review pipeline — from registration to certificate issuance.</p>
+
+        <div class="journey-container">
+            <!-- Step 1 -->
+            <div class="journey-step">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <line x1="19" y1="8" x2="19" y2="14"></line>
+                        <line x1="16" y1="11" x2="22" y2="11"></line>
+                    </svg>
+                    <span class="step-tag">1</span>
+                </div>
+                <div class="journey-title">Account Registration</div>
+                <div class="journey-desc">Register profile &amp; complete key data fields</div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="journey-step">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span class="step-tag">2</span>
+                </div>
+                <div class="journey-title">Electronic Submission</div>
+                <div class="journey-desc">Fill application form, upload PDFs, and settle applicable fees</div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="journey-step">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span class="step-tag">3</span>
+                </div>
+                <div class="journey-title">Regulatory Review</div>
+                <div class="journey-desc">Compliance assessed against requirements through document evaluation, demonstration, or inspection where required</div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="journey-step">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <path d="M9 15l2 2 4-4"></path>
+                    </svg>
+                    <span class="step-tag">4</span>
+                </div>
+                <div class="journey-title">Licence Issuance</div>
+                <div class="journey-desc">Instant online certificate delivery</div>
+            </div>
+        </div>
+
+        <div class="helpdesk-box">
+            <div class="helpdesk-title">Need Technical or Registration Assistance?</div>
+            <p>Our TCAA Helpdesk team is available to support you with profile setup and application submissions.</p>
+            <div class="toll-free">
+                TOLL-FREE SUPPORT LINE: 0800 110 193
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

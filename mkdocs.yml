@@ -1,0 +1,82 @@
+site_name: Quick Onboarding with CASP
+site_description: Get to know the TCAA Civil Aviation Services Portal (CASP), then walk through it step by step or jump straight to what you need
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - announce.dismiss
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    logo: material/airplane
+
+extra_css:
+  - assets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Create your account: getting-started/register.md
+      - First login and profile: getting-started/first-login.md
+      - Reset a forgotten password: getting-started/reset-password.md
+  - Your Account:
+      - Update your profile: account/edit-profile.md
+      - Change your password: account/change-password.md
+      - Manage entity information: account/entity-information.md
+  - Dashboard:
+      - Understanding the Dashboard: dashboard/overview.md
+  - Applications:
+      - Start a new application: applications/start-application.md
+      - Save and resume drafts: applications/drafts.md
+      - Application status meanings: applications/statuses.md
+  - Billing & Payment:
+      - Pay an application fee: billing/pay-fee.md
+  - Meetings:
+      - Confirm a meeting invitation: meetings/confirm-meeting.md
+      - View your meeting records: meetings/view-meetings.md
+  - Clarifications:
+      - Respond to a clarification request: clarifications/respond.md
+  - Document Resubmission:
+      - Respond to a resubmission request: resubmissions/respond.md
+  - Licences & Certificates:
+      - View and download an issued document: applications/licences.md
+  - Reference:
+      - Acronyms: reference/acronyms.md
+      - Download the PDF manual: reference/download.md
+
+extra:
+  manual_pdf: assets/manual/CASP-Manual-2026_v01-Core-Functions.pdf
+  manual_version: "2026 v01 — Core Functions"

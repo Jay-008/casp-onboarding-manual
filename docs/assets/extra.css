@@ -1,0 +1,482 @@
+/* Minimalist tweaks on top of Material defaults */
+
+/* Justified body copy, matching the official TCAA read-me */
+.md-typeset p,
+.md-typeset li {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Keep short/structural text left-aligned — justifying these looks broken */
+.md-typeset .journey p,
+.md-typeset .journey li,
+.md-typeset .helpdesk p,
+.md-typeset .grid.cards li,
+.md-typeset .md-button,
+.md-typeset table p,
+.md-typeset table li {
+  text-align: inherit;
+  hyphens: manual;
+}
+
+.md-typeset img {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.md-typeset h1 {
+  font-weight: 500;
+}
+
+.md-typeset h2 {
+  font-weight: 500;
+  margin-top: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Quiet admonitions instead of the default heavy colored blocks */
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left: 3px solid var(--md-admonition-icon-color, var(--md-default-fg-color--light));
+  box-shadow: none;
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background-color: transparent;
+}
+
+/* Card grid on the homepage */
+.grid.cards > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  margin: 1.5rem 0;
+  padding-left: 0;
+}
+
+.grid.cards > ul > li {
+  border: none;
+  border-left: 2px solid var(--md-default-fg-color--lightest);
+  border-radius: 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  transition: border-color 0.15s;
+}
+
+.grid.cards > ul > li:hover {
+  border-left-color: var(--md-primary-fg-color);
+}
+
+/* Buttons: quieter, flatter */
+.md-typeset .md-button {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.md-typeset .md-button--primary {
+  box-shadow: none;
+}
+
+/* ==========================================================
+   Landing page — official TCAA masthead + onboarding blocks
+   ========================================================== */
+
+:root {
+  --casp-accent: #ff8c00;
+}
+
+/* --- Official masthead --- */
+.tcaa-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px double var(--md-primary-fg-color);
+}
+
+.tcaa-masthead img {
+  border: none !important;
+  border-radius: 0 !important;
+  flex-shrink: 0;
+}
+
+.tcaa-masthead .arms {
+  width: 74px;
+}
+
+.tcaa-masthead .brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.tcaa-masthead .brand img {
+  width: 108px;
+}
+
+/* TCAA wordmark is dark blue — lift it on dark backgrounds */
+[data-md-color-scheme="slate"] .tcaa-masthead .brand img {
+  filter: brightness(0) invert(1);
+}
+
+.tcaa-masthead .titles {
+  text-align: center;
+  flex: 1;
+  line-height: 1.35;
+}
+
+.tcaa-masthead .titles .country,
+.tcaa-masthead .titles .ministry,
+.tcaa-masthead .titles .authority {
+  color: var(--md-primary-fg-color);
+  text-transform: uppercase;
+  font-weight: 800;
+  display: block;
+}
+
+.tcaa-masthead .titles .country { font-size: 0.78rem; letter-spacing: 0.5px; }
+.tcaa-masthead .titles .ministry { font-size: 0.7rem; font-weight: 700; }
+.tcaa-masthead .titles .authority { font-size: 1rem; letter-spacing: 0.6px; }
+
+.tcaa-masthead .iso {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: var(--md-primary-fg-color);
+  white-space: nowrap;
+}
+
+[data-md-color-scheme="slate"] .tcaa-masthead .iso {
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Account type cards --- */
+.account-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.account-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  padding: 1.1rem 1.2rem;
+  background-color: var(--md-code-bg-color);
+}
+
+.account-card .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 2px solid var(--casp-accent);
+}
+
+.account-card .head strong {
+  color: var(--md-primary-fg-color);
+  font-size: 0.85rem;
+}
+
+[data-md-color-scheme="slate"] .account-card .head strong {
+  color: var(--md-primary-fg-color--light);
+}
+
+.pill {
+  background-color: var(--casp-accent);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 0.15rem 0.55rem;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.md-typeset .account-card ul {
+  margin: 0.4rem 0;
+}
+
+.md-typeset .account-card li {
+  font-size: 0.75rem;
+  margin-bottom: 0.15rem;
+}
+
+.rule-note {
+  border-left: 3px solid var(--md-primary-fg-color);
+  background-color: var(--md-default-fg-color--lightest);
+  padding: 0.6rem 0.8rem;
+  margin-top: 0.8rem;
+  font-size: 0.72rem;
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- Prerequisites checklist --- */
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.check-item {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid var(--md-primary-fg-color);
+  border-radius: 0 6px 6px 0;
+  padding: 0.85rem 1rem;
+  background-color: var(--md-code-bg-color);
+}
+
+.check-item .t {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.3rem;
+}
+
+[data-md-color-scheme="slate"] .check-item .t {
+  color: var(--md-primary-fg-color--light);
+}
+
+.check-item p {
+  font-size: 0.72rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- Applicant journey pipeline --- */
+.journey {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+  margin: 1.75rem 0;
+}
+
+.journey::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background-color: var(--md-default-fg-color--lighter);
+  z-index: 0;
+}
+
+.journey .step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.journey .num {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 0.7rem;
+  border-radius: 50%;
+  background-color: var(--md-primary-fg-color);
+  border: 3px solid var(--casp-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey .st {
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.3rem;
+}
+
+[data-md-color-scheme="slate"] .journey .st {
+  color: var(--md-primary-fg-color--light);
+}
+
+.journey .sd {
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Help desk --- */
+.helpdesk {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  background-color: var(--md-code-bg-color);
+  padding: 1.2rem;
+  text-align: center;
+  margin: 1.75rem 0;
+}
+
+.helpdesk .hd-t {
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  margin-bottom: 0.3rem;
+}
+
+[data-md-color-scheme="slate"] .helpdesk .hd-t {
+  color: var(--md-primary-fg-color--light);
+}
+
+.helpdesk p {
+  font-size: 0.75rem;
+  margin: 0.3rem 0 0.6rem;
+}
+
+.helpdesk .tel {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.md-typeset .helpdesk .tel a {
+  color: var(--casp-accent);
+}
+
+/* --- Mobile --- */
+@media screen and (max-width: 44.98em) {
+  .tcaa-masthead {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tcaa-masthead .brand {
+    align-items: center;
+  }
+
+  .journey {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .journey::before {
+    top: 21px;
+    bottom: 21px;
+    left: 21px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .journey .step {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.9rem;
+  }
+
+  .journey .num {
+    margin: 0;
+    flex-shrink: 0;
+  }
+}
+
+/* --- PDF download: announcement bar (every page) --- */
+.md-banner {
+  background-color: var(--md-primary-fg-color--dark);
+  color: #fff;
+}
+
+.md-banner a.pdf-announce,
+.md-banner a.pdf-announce:hover,
+.md-banner a.pdf-announce:focus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.8rem;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.md-banner a.pdf-announce:hover {
+  text-decoration: underline;
+}
+
+.pdf-announce svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentcolor;
+  flex-shrink: 0;
+}
+
+.pdf-announce .ver {
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+@media screen and (max-width: 44.98em) {
+  .pdf-announce .ver {
+    display: none;
+  }
+}
+
+/* --- PDF download: card on the download page --- */
+.pdf-card {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 3px solid var(--casp-accent);
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.4rem 0;
+}
+
+.pdf-card .icon {
+  flex-shrink: 0;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--casp-accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.pdf-card .meta {
+  flex: 1;
+}
+
+.pdf-card .name {
+  font-weight: 700;
+}
+
+.md-typeset .pdf-card p {
+  text-align: left;
+  font-size: 0.72rem;
+  margin: 0.2rem 0 0;
+  color: var(--md-default-fg-color--light);
+}
+
+@media screen and (max-width: 44.98em) {
+  .pdf-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
