@@ -10,9 +10,10 @@ After receiving the resubmission email, log in to CASP and access the request ei
 
 **Option 1 — Through Notifications**
 
-1. From the Dashboard, click the **Notifications** button.
-2. Select the **Resubmissions** notification.
-3. Click **Update Application**.
+1. Sign in to CASP.
+2. If the **Notifications** panel doesn't open automatically, click the **Notifications** icon.
+3. Select the **Resubmissions** notification.
+4. Click **Update Application**.
 
     ![Resubmission notification](../assets/images/resubmission-notification.png)
 

@@ -6,7 +6,19 @@ The stage at which payment is required depends on the regulatory service and app
 
 ## 1. Open the billing information
 
-Billing appears in two places: the **Bills** page in the top navigation (every invoice across all your applications), and the **Billing** tab inside a single application. This walkthrough uses the application route.
+Billing appears in two places: the **Bills** page in the top navigation (every invoice across all your applications), and the **Billing** tab inside a single application. Reach the same invoice either through your notifications or by opening the application directly.
+
+**Option 1 — Through Notifications**
+
+1. Sign in to CASP.
+2. If the **Notifications** panel doesn't open automatically, click the **Notifications** icon.
+3. Select **Pending Bills**.
+4. Locate the relevant application.
+5. Click **View Bill Details** in the **Action** column.
+
+    ![General Notifications Panel — Pending Bills](../assets/images/notifications-panel-pending-bills.png)
+
+**Option 2 — Through Track your Applications**
 
 1. From the Dashboard, go to **Track your Applications**.
 2. Select the **Applications** tab.

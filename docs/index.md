@@ -171,6 +171,9 @@ A regulatory review pipeline — from registration to certificate issuance.
 - **Clarifications**
   [Respond to a clarification request](clarifications/respond.md) from TCAA.
 
+- **Formal Application**
+  [Respond to a formal application invitation](formal-application/respond.md) from TCAA.
+
 - **Document Resubmission**
   [Respond to a resubmission request](resubmissions/respond.md) from TCAA.
 

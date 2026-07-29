@@ -69,6 +69,8 @@ nav:
       - View your meeting records: meetings/view-meetings.md
   - Clarifications:
       - Respond to a clarification request: clarifications/respond.md
+  - Formal Application:
+      - Respond to a formal application invitation: formal-application/respond.md
   - Document Resubmission:
       - Respond to a resubmission request: resubmissions/respond.md
   - Licences & Certificates:
