@@ -122,9 +122,12 @@
   width: 108px;
 }
 
-/* TCAA wordmark is dark blue — lift it on dark backgrounds */
+/* TCAA wordmark is dark blue — give it a light backdrop on dark
+   backgrounds instead of inverting it, so the original brand colors
+   (navy + orange) are preserved rather than flattened to white. */
 [data-md-color-scheme="slate"] .tcaa-masthead .brand img {
-  filter: brightness(0) invert(1);
+  border-radius: 6px;
+  padding: 6px 10px;
 }
 
 .tcaa-masthead .titles {
